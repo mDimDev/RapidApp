@@ -1,0 +1,22 @@
+{
+    "name":             "mDimDev/RapidApp",
+    "description":      "Simple framework that can be expanded to control views and work with a db",
+    "keywords":         ["page controller", "abstract", "data layer"],
+    "license":          "MIT",
+    "authors": [
+        {
+            "name":         "Matt Shanks",
+            "email":        "matt@dimensiondevelopment.ca",
+            "homepage":     "www.dimensiondevelopment.ca",
+            "role":         "Nightscream"
+        }
+    ],
+
+    "autoload": {
+        "classmap": [
+            "src/Control/",
+            "src/Datalayer/"
+        ]
+    }
+    
+}
