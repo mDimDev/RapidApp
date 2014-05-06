@@ -19,7 +19,7 @@ abstract class PageController{
 	private $request;
 
 	function __construct(){
-		$this->request = new RapidApp\Request();
+		$this->request = new Request();
 	}//!()
 
 	abstract function process();
