@@ -15,10 +15,11 @@ namespace RapidApp;
 *
 */
 abstract class PageController{
+	
 	private $request;
 
 	function __construct(){
-		$this->request = new Request();
+		$this->request = new RapidApp\Request();
 	}//!()
 
 	abstract function process();
@@ -33,6 +34,5 @@ abstract class PageController{
 	}//!()
 
 }//!
-
 
 ?>
