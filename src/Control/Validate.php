@@ -7,7 +7,7 @@ class Validate{
 	private $v;
 
 	function __construct( $tainted ){
-		$this->v = new Valitron\Validator( $tainted );
+		$this->v = new \Valitron\Validator( $tainted );
 	}
 
 	function runCheck(){
