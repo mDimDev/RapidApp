@@ -9,7 +9,6 @@ namespace RapidApp;
 * @category	- Request
 * @author 	- Dimension Development
 * @author 	- Matt Shanks
-* @see  	- DimController!, DimCommandResolver!, DimRegistry!, DimCommand!
 * @version 	- v1.0
 * @license 	- http://www.php.net/license/3_01.txt
 *
