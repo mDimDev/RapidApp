@@ -13,7 +13,7 @@
     ],
     
     "require": {
-        "vlucas/valitron"
+        "vlucas/valitron":
     },
 
     "autoload": {
