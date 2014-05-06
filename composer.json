@@ -11,6 +11,10 @@
             "role":         "Nightscream"
         }
     ],
+    
+    "require": {
+        "vlucas/valitron"
+    },
 
     "autoload": {
         "classmap": [
