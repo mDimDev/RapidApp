@@ -19,8 +19,8 @@ class Operate{
 			$user = "root";
 			$pass = "cubanlink";
 
-			static::$pdo = new PDO("mysql:host=$host;dbname=$name", $user, $pass); 
-			static::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			static::$pdo = new \PDO("mysql:host=$host;dbname=$name", $user, $pass); 
+			static::$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
 		}
 
