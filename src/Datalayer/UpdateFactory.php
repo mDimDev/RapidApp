@@ -22,7 +22,7 @@ class UpdateFactory {
 	 * @return  - Array (query, values)
 	*/
 	function buildQuery($idObj) {
-		$request = DimRegistry::instance()->getRequest(); // get the current request
+		$request = Registry::instance()->getRequest(); // get the current request
 
 		// initialize
 		$conds = null;
