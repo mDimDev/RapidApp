@@ -12,7 +12,8 @@ abstract class Validate{
 
 	// - To be implemented by concrete children
 	// - Methods purpose should be adding rules to the Valitron object that are specific to current project and its inputs
-	// - See '/vendor/vlucas/valitron' for documentation on adding rules
+	//   as well as running the validate method on the Valitron type and approving or rejecting input
+	// - See '/vendor/vlucas/valitron' for documentation on using the Valitron type
 	abstract function runCheck();
 
 }//!
