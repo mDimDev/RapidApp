@@ -59,7 +59,7 @@ abstract class IdentityObj {
 	 * @access 	- public
 	*/
 	function setProperties($table, $id){
-		$request = DimRegistry::instance()->getRequest(); // get the current request
+		$request = Registry::instance()->getRequest(); // get the current request
 		
 		if($request->getProperty('id')){
 			$this->properties = array('table'=>$table, $id=>$request->getProperty('id'));
