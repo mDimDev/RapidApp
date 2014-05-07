@@ -4,7 +4,7 @@ namespace RapidApp;
 
 abstract class Validate{
 	// instance of a Valitron object
-	private $v;
+	protected $v;
 
 	function __construct( $tainted ){
 		$this->v = new \Valitron\Validator( $tainted );
