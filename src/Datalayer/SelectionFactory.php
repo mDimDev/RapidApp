@@ -24,7 +24,7 @@ class SelectionFactory {
 	 * @access 	- public
 	*/	
 	function buildQuery(IdentityObj $idObj) {
-		$request = DimRegistry::instance()->getRequest(); // get the current request
+		$request = Registry::instance()->getRequest(); // get the current request
 		
 		// set the properties of particular ido type and hold results
 		// @param - Array
@@ -48,7 +48,7 @@ class SelectionFactory {
 	 * @access 	- public
 	*/	
 	function buildRemove(IdentityObj $idObj) {
-		$request = DimRegistry::instance()->getRequest(); // get the current request
+		$request = Registry::instance()->getRequest(); // get the current request
 		
 		// set the properties of particular ido type and hold results
 		// @param - Array
