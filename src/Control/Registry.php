@@ -17,9 +17,6 @@ class Registry {
 	// @param - Registry
 	private static $instance;
 
-	// @param - PDO  
-	private static $pdo;
-
 	// @param - Request 
 	private $request;
 
@@ -31,39 +28,20 @@ class Registry {
 	// }}}()
 
 	/** 
-	 * @desc 	- checks if it exsists, creates itself or returns itself
+	 * @desc 	- checks if it exsists, creates itstatic or returns itstatic
 	 * @access 	- public
 	 * @return 	- Registry!
 	*/
 	static function instance(){
-		if(! isset(self::$instance)) { 
-			self::$instance = new self(); 
+		if(! isset(static::$instance)) { 
+			static::$instance = new static(); 
 		}
 
-		return self::$instance;
+		return static::$instance;
 
 	} 
 	// }}}()
 
-	/** 
-	 * @desc 	- sets the PDO param
-	 * @access 	- public
-	*/
-	static function getPDO(){
-		if(! isset(self::$pdo)) { 
-			$host = "localhost";
-			$name = "dimension";
-			$user = "root";
-			$pass = "";
-
-			self::$pdo = new PDO("mysql:host=$host;dbname=$name", $user, $pass); 
-			self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-			return self::$pdo;
-		}
-		
-	}
-	// }}}()
 
 	/** 
 	 * @desc 	- Sets the request property to the provided Request object
