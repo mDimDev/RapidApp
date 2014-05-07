@@ -2,7 +2,7 @@
 
 namespace RapidApp;
 
-class Validate{
+abstract class Validate{
 	// instance of a Valitron object
 	private $v;
 
@@ -10,24 +10,10 @@ class Validate{
 		$this->v = new \Valitron\Validator( $tainted );
 	}
 
-	function runCheck(){
-		// define validation input rules for this project
-		$this->v->rule( 'slug', ['c_name', 'c_phone'] );
-		$this->v->rule( 'email', 'c_email' );
-		$this->v->rule( 'alpha', ['c_bus_typ', 'c_needed', 'c_brand', 'c_updates', 'c_changes', 'c_browseshop', 'c_anime', 'c_compsys'] );
-
-		// run the validation			
-		if( $this->v->validate() ){
-			
-			return;
-
-		} else {
-			
-			throw new Exception( print_r( $this->v->errors() ) );
-		}
-
-	}//()
-
+	// - To be implemented by concrete children
+	// - Methods purpose should be adding rules to the Valitron object that are specific to current project and its inputs
+	// - See '/vendor/vlucas/valitron' for documentation on adding rules
+	abstract function runCheck();
 
 }//!
 
