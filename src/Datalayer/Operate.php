@@ -4,6 +4,30 @@ namespace RapidApp;
 
 class Operate{
 
+	// @param - PDO  
+	private static $pdo;
+
+	/** 
+	 * @desc 	- sets the PDO param
+	 * @access 	- public
+	*/
+	static function setPDO(){
+		
+		if(! isset(static::$pdo)) { 
+			$host = "localhost";
+			$name = "dimension";
+			$user = "root";
+			$pass = "cubanlink";
+
+			static::$pdo = new PDO("mysql:host=$host;dbname=$name", $user, $pass); 
+			static::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		}
+
+		return;	
+	}
+	// }}}()
+
 	/** 
 	 * @desc 	- Handles obtaining a PDO, preparing a statement, and executing that statement
 	 * @param 	- String (query)
@@ -11,12 +35,12 @@ class Operate{
 	 * @access 	- public
 	*/
 	function forgeQuery($query, Array $values){
-		$pdo = Registry::getPDO(); // call static method to set the PDO
+		static::setPDO();
 
-		$handle = $pdo->prepare($query); // prepare the query
+		$handle = static::$pdo->prepare($query); // prepare the query
 		$handle->closeCursor(); // free up db connection, but leave statement in a state it can run again
 		$result = $handle->execute($values); // execute the query
-		$lastId = $pdo->lastInsertid(); // get inserted id
+		$lastId = static::$pdo->lastInsertid(); // get inserted id
 
 		return Array('result'=>$result, 'handle'=>$handle, 'lastId'=>$lastId);
 
@@ -31,7 +55,7 @@ class Operate{
 	 * @return 	- Array (of data)
 	 * @access  - public
 	*/
-	static function spawnData(IdentityObj $idObj, SelectionFactory $sf){
+	function spawnData(IdentityObj $idObj, SelectionFactory $sf){
 		// @param - Array(query, values)
 		$qa = $sf->buildQuery($idObj);
 		// @param - Array
@@ -49,9 +73,6 @@ class Operate{
 		return $fetch;	
 	}
 	// }}}()
-
-
-
 
 }// }}}
 
