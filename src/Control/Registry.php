@@ -44,22 +44,16 @@ class Registry {
 
 
 	/** 
-	 * @desc 	- Sets the request property to the provided Request object
-	 * @param 	- Request
-	 * @access 	- public
-	*/
-	function setRequest(Request $request){
-		$this->request = $request;
-
-	} 
-	// }}}()
-
-	/** 
 	 * @desc 	- Returns the contained Request object
 	 * @return 	- Request
 	 * @access 	- public
 	*/
 	function getRequest(){
+
+		if( is_null( $this->request ) ){
+			$this->request = new Request();
+		}
+
 		return $this->request;
 		
 	} 
