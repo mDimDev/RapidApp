@@ -3,7 +3,6 @@
 namespace RapidApp;
 
 /**
-* @class
 * @desc 	- abstract parent setting the 'interface' for all PageController! children
 			- holds a request, runs processing, and forwards on
 * @category	- Request
@@ -14,22 +13,15 @@ namespace RapidApp;
 *
 */
 abstract class PageController{
-	
-	private $request;
-
-	function __construct(){
-		$this->request = new Request();
-	}//!()
 
 	abstract function process();
 
 	function forward( $resource ){
 		include( $resource );
-		exit(0);
 	}//!()
 
 	function getRequest(){
-		return $this->request;
+		return Registry::instance()->getRequest();
 	}//!()
 
 }//!
